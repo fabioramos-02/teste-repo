@@ -1,0 +1,12 @@
+{
+  "nome": "app",
+  "descricao": "App web gov acessível (Next 16 + Design System XVIA)",
+  "linguagem": "typescript",
+  "stack": ["next", "react", "@plataforma-xvia/ds-react"],
+  "ds": "xvia-react",
+  "comandos": {
+    "check": "npx.cmd -y pnpm@10 build",
+    "lint": "npx.cmd -y pnpm@10 lint",
+    "test": "npx.cmd -y pnpm@10 build"
+  }
+}

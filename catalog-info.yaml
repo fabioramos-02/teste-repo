@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: teste-repo
+  title: "teste-repo"
+  description: "teste-repo"
+  annotations:
+    github.com/project-slug: fabioramos-02/teste-repo
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - nextjs
+    - ds-xvia
+spec:
+  type: website
+  lifecycle: experimental
+  owner: user:guest

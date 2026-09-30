@@ -1,0 +1,6 @@
+site_name: "teste-repo"
+site_description: "teste-repo"
+nav:
+  - Início: index.md
+plugins:
+  - techdocs-core

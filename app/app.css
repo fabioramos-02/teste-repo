@@ -1,0 +1,91 @@
+/* Camada da aplicação: só layout e composição. Cor, fonte, raio e espaço vêm dos tokens do DS. */
+/* Ordem canônica repetida aqui: se este arquivo carregar antes do CSS crítico, "app" continua por cima. */
+@layer ds.primitives, ds.semantic, ds.theme, app;
+
+@layer app {
+  body {
+    margin: 0;
+    background: var(--ds-color-surface);
+    color: var(--ds-color-text-default);
+    font-family: var(--ds-font-family-sans);
+  }
+
+  .wrap {
+    width: min(72rem, 100% - 2 * var(--ds-space-4));
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: var(--ds-space-8);
+  }
+  .section--muted {
+    background: var(--ds-color-surface-muted);
+  }
+
+  /* Marca no header: logo do governo | nome do site */
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ds-space-3);
+    color: var(--ds-color-brand-fg);
+    line-height: 1.1;
+  }
+  .brand small {
+    display: block;
+    font-size: var(--ds-text-tiny-size);
+    opacity: 0.85;
+  }
+  .brand__divisor {
+    align-self: stretch;
+    width: 1px;
+    background: currentColor;
+    opacity: 0.4;
+  }
+  .logo {
+    display: block;
+    height: 2.5rem;
+    width: auto;
+  }
+  .logo--rodape {
+    height: 3.5rem;
+  }
+
+  /* Grade de cards que se ajusta à largura */
+  .grid {
+    display: grid;
+    gap: var(--ds-space-4);
+    grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+    margin-top: var(--ds-space-5);
+  }
+
+  /* ponytail: estica o .card interno do ds-card (sem shadow DOM) para os botões do slot footer alinharem embaixo; revisar se o DS mudar a marcação */
+  .grid > ds-card > .card,
+  .slide > ds-card > .card {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Carrossel: todo card com a altura do maior; centraliza quando cabe, sem cortar quando rola */
+  .trilha {
+    margin-top: var(--ds-space-5);
+  }
+  .trilha .carousel__track {
+    align-items: stretch;
+    justify-content: safe center;
+  }
+  /* não dar height ao slide: impede o stretch */
+  .slide {
+    display: grid;
+  }
+
+  /* Botões no slot footer do card */
+  .acoes {
+    display: grid;
+    gap: var(--ds-space-2);
+    width: 100%;
+  }
+
+  .muted {
+    color: var(--ds-color-text-muted);
+  }
+}
